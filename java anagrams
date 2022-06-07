@@ -1,22 +1,18 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Solution {
 
     static boolean isAnagram(String a, String b) {
-        a.toLowerCase();
-        b.toLowerCase();
-        int count = 0;
-        for(int i = 0; i < a.length(); i++){
-            for(int j = 0; j < b.length(); j++){
-                if(a.charAt(i) == b.charAt(j)){
-                    count++;
-                    b = b.substring(0, j) + b.substring(j+1);
-                    break;
-                }
+        char[] A = a.toLowerCase().toCharArray();
+        char[] B = b.toLowerCase().toCharArray();
+        Arrays.sort(A);
+        Arrays.sort(B);
+        for(int i = 0; i < A.length; i++){
+            if(A[i] != B[i]){
+                return false;
             }
         }
-        return a.length() == count;
-        
+        return true;
     }
 
   public static void main(String[] args) {
