@@ -3,6 +3,9 @@ import java.util.*;
 public class Solution {
 
     static boolean isAnagram(String a, String b) {
+        if(a.length() != b.length()){
+            return false;
+        }
         char[] A = a.toLowerCase().toCharArray();
         char[] B = b.toLowerCase().toCharArray();
         Arrays.sort(A);
